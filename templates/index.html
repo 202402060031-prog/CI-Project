@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌤 Weather Prediction</h1>
+        <p>Enter the values below and get your weather forecast.</p>
+
+        <form action="/predict" method="POST" class="form-box">
+
+            <input type="date" name="date" required />
+
+            <input type="number" step="0.01" name="precipitation" placeholder="Precipitation (mm)" required />
+
+            <input type="number" step="0.1" name="temp_max" placeholder="Max Temperature (°C)" required />
+
+            <input type="number" step="0.1" name="temp_min" placeholder="Min Temperature (°C)" required />
+
+            <input type="number" step="0.1" name="wind" placeholder="Wind Speed (km/h)" required />
+
+            <button type="submit">Predict Weather</button>
+        </form>
+
+        {% if result %}
+        <h2 class="result">Predicted Weather: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
